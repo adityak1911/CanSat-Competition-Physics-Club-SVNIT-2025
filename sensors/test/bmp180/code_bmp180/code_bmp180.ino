@@ -1,17 +1,20 @@
 #include <Wire.h>
 #include <Adafruit_BMP085.h>  // BMP180 uses this library
 
+// Define I2C pins for ESP32
+#define SDA_PIN 21
+#define SCL_PIN 22
+
 // Create BMP180 object
 Adafruit_BMP085 bmp;
 
 void setup() {
-  // Start Serial Monitor
   Serial.begin(115200);
   delay(1000);
   Serial.println("Initializing BMP180...");
 
-  // Initialize I2C with custom pins (SDA=21, SCL=22)
-  Wire.begin(21, 22);
+  // Initialize I2C with custom pins
+  Wire.begin(SDA_PIN, SCL_PIN);
 
   // Initialize BMP180
   if (!bmp.begin()) {
