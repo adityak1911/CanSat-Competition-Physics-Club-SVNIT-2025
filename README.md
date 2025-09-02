@@ -8,37 +8,17 @@ Here you’ll find all the **Arduino/ESP32 code** required to test individual se
 
 ## 📂 Repository Structure
 
-```
-CanSat-Competition/
-│
-├── code/                         # All Arduino/ESP32 codes
-│   ├── sensors/                  # Individual sensor test codes
-│   │   ├── temperature_test.ino  # e.g. BMP280/DHT11/DHT22
-│   │   ├── pressure_test.ino     # e.g. BMP280/BMP180
-│   │   ├── imu_test.ino          # e.g. MPU6050/MPU9250
-│   │   ├── gps_test.ino          # e.g. NEO-6M GPS
-│   │   └── communication_test.ino# e.g. LoRa / RF / Bluetooth
-│   │
-│   └── main/
-│       └── cansat_main.ino       # Integrated telemetry + transmission
-│
-├── hardware/                     # Hardware setup resources
-│   ├── wiring_diagrams/          # Circuit connections & pin mappings
-│   └── components_list.md        # All parts used (sensors, MCU, comms)
-│
-├── docs/                         # Documentation & learning
-│   ├── workshops.md              # Notes from orientation/workshops
-│   ├── competition_rules.md      # Event rules & judging criteria
-│   └── troubleshooting.md        # Common issues & fixes
-│
-├── data/                         # Sample telemetry
-│   ├── sample_log.csv            # Example CanSat telemetry log
-│   └── visualization.ipynb       # Jupyter notebook for plotting data
-│
-└── README.md                     # Repo overview & instructions
-```
-
----
+CanSat-Competition-Physics-Club-SVNIT-2025/
+├── Ground station/
+│ └── receiver/
+│ └── receiver.ino
+├── Sensors/
+│ ├── All_integrated/
+│ │ └── All_integrated.ino
+│ ├── BMP180/
+│ ├── MPU6050_6-axis/
+│ └── transmitter/
+└── README.md
 
 ## 🛠️ Getting Started
 
