@@ -5,20 +5,21 @@ This is the official repository for the **CanSat Design, Build & Launch Competit
 Here you’ll find all the **Arduino/ESP32 code** required to test individual sensors and run the integrated **CanSat system**.
 
 ---
-
 ## 📂 Repository Structure
 
+```text
 CanSat-Competition-Physics-Club-SVNIT-2025/
 ├── Ground station/
-│ └── receiver/
-│ └── receiver.ino
+│   └── receiver/
+│       └── receiver.ino
 ├── Sensors/
-│ ├── All_integrated/
-│ │ └── All_integrated.ino
-│ ├── BMP180/
-│ ├── MPU6050_6-axis/
-│ └── transmitter/
+│   ├── All_integrated/
+│   │   └── All_integrated.ino
+│   ├── BMP180/
+│   ├── MPU6050_6-axis/
+│   └── transmitter/
 └── README.md
+
 
 ## 🛠️ Getting Started
 
