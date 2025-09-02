@@ -12,6 +12,8 @@
 #define ss 5
 #define rst 14
 #define dio0 2
+// Packet transmission number
+unsigned long packets_transmitted=0;
 
 // Create BMP085 object for BMP180 sensor, and global variables for BMP180
 Adafruit_BMP085 bmp;
@@ -394,17 +396,30 @@ float altitude = readingAltitude - initialAltitude + absinitialAltitude;
   // === Prepare timestamp ===
   unsigned long timestamp = millis();  // in ms since boot
 
+  unsigned long hours = timestamp / 3600000;
+  unsigned long minutes = (timestamp % 3600000) / 60000;
+  unsigned long seconds = (timestamp % 60000) / 1000;
+  unsigned long milliseconds = timestamp % 1000;
+
+  String timeFormatted = String(hours) + ":" +
+                        String(minutes) + ":" +
+                        String(seconds) + "." +
+                        String(milliseconds);
+
   // === Prepare message ===
-  String message = "CAN-TI-" + String(timestamp) +
-                   "; A-" + String(altitude, 2) +
-                   "; T-" + String(temperature, 2) +
-                   "; P-" + String(pressure, 2) + 
-                   "; X-" + String(posX)+
-                   "; Y-" + String(posY)+
-                   "; Z-" + String(posZ)+
-                   "; YX-" + String(roll)+
-                   "; YY-" + String(pitch)+
-                   "; YZ-" + String(yaw);
+  String message = "PK-" + String(packets_transmitted) +
+                  "; TI-" + timeFormatted +
+                  "; A-" + String(altitude, 2) +
+                  "; T-" + String(temperature, 2) +
+                  "; P-" + String(pressure, 2) + 
+                  "; X-" + String(posX) +
+                  "; Y-" + String(posY) +
+                  "; Z-" + String(posZ) +
+                  "; YX-" + String(roll) +
+                  "; YY-" + String(pitch) +
+                  "; YZ-" + String(yaw);
+
+  packets_transmitted++;
 
   // === Send data via LoRa ===
   Serial.print("Sending message: ");
