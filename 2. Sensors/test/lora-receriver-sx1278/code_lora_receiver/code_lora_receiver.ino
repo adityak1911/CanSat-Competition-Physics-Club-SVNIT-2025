@@ -15,7 +15,10 @@ void setup() {
   LoRa.setPins(NSS_PIN, RST_PIN, DIO0_PIN);
 
   // Initialize LoRa at 433 MHz, 868 MHz, or 915 MHz (match transmitter!)
-  if (!LoRa.begin(915E6)) {   // Change frequency if needed
+  if (!LoRa.begin(433E6)) {   // Change frequency if needed 
+  
+    // 433E6 for 433 MHZ
+    // 915E6 for 915 MHZ
     Serial.println("Starting LoRa failed!");
     while (1);
   }
